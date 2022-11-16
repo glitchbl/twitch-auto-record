@@ -42,7 +42,7 @@ const loop = async () => {
         isRecording = true
         console.log('Launching streamlink...')
         exec(
-            `${streamlinkPath} "--twitch-api-header=Authentication=OAuth ${twitchOAuth}" twitch.tv/${streamerName} best -o videos/${streamerName}_${getDateString()}.mp4`,
+            `${streamlinkPath} "--twitch-api-header=Authorization=OAuth ${twitchOAuth}" twitch.tv/${streamerName} best -o videos/${streamerName}_${getDateString()}.mp4`,
             (error, stdout, stderr) => {
                 if (error) console.log('Error:\n' + `${error.name}: ${error.message}`)
                 if (stdout) console.log('Stdout:\n' + stdout)
